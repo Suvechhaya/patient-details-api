@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 //Import Routes
 const authRoute = require('./routes/auth');
-const patientRoute = require('./routes/patient');
+const patientRoute = require('./routes/patientManagement');
 
 dotenv.config();
 

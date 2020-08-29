@@ -4,25 +4,25 @@ exports.addPatients = async (req, res) => {
   try {
     // Create a new patient
     const patient = new Patient({
-      date: res.body.date,
-      name: res.body.name,
-      address: res.body.address,
-      dob: res.body.dob,
-      telephone: res.body.telephone,
-      occupation: res.body.occupation,
-      medicalStatus: res.body.medicalStatus,
-      description: res.body.description,
-      accepted: res.body.description,
-      impression: res.body.impression,
-      xrays: res.body.xrays,
-      intraOral: res.body.intraOral,
-      extraOral: res.body.extraOral,
-      fillOutManualForm: res.body.fillOutManualForm,
-      casePresentation: res.body.casePresentation,
-      comment: res.body.comment,
-      readyForBonding: res.body.readyForBonding,
-      thesis: res.body.thesis,
-      bondingAppointment: res.body.bondingAppointment
+      date: req.body.date,
+      name: req.body.name,
+      address: req.body.address,
+      dob: req.body.dob,
+      telephone: req.body.telephone,
+      occupation: req.body.occupation,
+      medicalStatus: req.body.medicalStatus,
+      description: req.body.description,
+      accepted: req.body.accepted,
+      impression: req.body.impression,
+      xrays: req.body.xrays,
+      intraOral: req.body.intraOral,
+      extraOral: req.body.extraOral,
+      fillOutManualForm: req.body.fillOutManualForm,
+      casePresentation: req.body.casePresentation,
+      comment: req.body.comment,
+      readyForBonding: req.body.readyForBonding,
+      thesis: req.body.thesis,
+      bondingAppointment: req.body.bondingAppointment
     });
 
     const savedPatient = await patient.save();
