@@ -11,19 +11,19 @@ const patientRoute = require('./routes/patientManagement');
 dotenv.config();
 
 //Connect to DB
-mongoose.connect('mongodb://localhost/patientDetails',
-{ useNewUrlParser: true },
- () => console.log('conntected to db!'));
+// mongoose.connect('mongodb://localhost/patientDetails',
+// { useNewUrlParser: true },
+//  () => console.log('conntected to db!'));
 
-// mongoose
+mongoose
 // .connect('mongodb://localhost/covid', {
-//     // .connect(process.env.DB_CONNECT, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//         useFindAndModify: false,
-//         useCreateIndex: true
-//     })
-//     .then( () => { console.log('connected to db!') } );
+    .connect(process.env.DB_CONNECT, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true
+    })
+    .then( () => { console.log('connected to db!') } );
 
 //Middleware
 app.use(express.json());
