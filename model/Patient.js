@@ -61,7 +61,7 @@ const patientSchema = new mongoose.Schema({
   },
   casePresentation: {
     casePresentation: Boolean,
-    presentedTo: Array,
+    presentedTo: String,
     casePresentationDate: Date
   },
   comment: {

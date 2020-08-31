@@ -1,8 +1,11 @@
 const router = require('express').Router();
+const bodyParser = require('body-parser');
 const authController = require('../controllers/auth');
 
-router.post('/register', authController.signup);
+let jsonParser = bodyParser.json();
 
-router.post('/login', authController.login);
+router.post('/register', jsonParser, authController.signup);
+
+router.post('/login', jsonParser, authController.login);
 
 module.exports = router;

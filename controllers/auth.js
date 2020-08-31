@@ -33,7 +33,7 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
     try {
         //check if user exists
-        let fetchUser = await User.findOne({ email: req.body.email });
+        let fetchUser = await User.findOne({ name: req.body.name });
         if (!fetchUser) {
             res.status(404).json({ error: "User does not exist"});
             return;
@@ -47,7 +47,7 @@ exports.login = async (req, res) => {
         }
 
         //generate access token
-        let accessToken = jwt.sign({ email: req.body.email }, process.env.JWT_SECRET);
+        let accessToken = jwt.sign({ name: req.body.name }, process.env.JWT_SECRET);
 
         res.status(200).json({
             user: fetchUser,
