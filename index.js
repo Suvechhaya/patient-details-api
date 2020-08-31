@@ -1,12 +1,20 @@
+'use-strict';
+
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 //Import Routes
 const authRoute = require('./routes/auth');
 const patientRoute = require('./routes/patientManagement');
+
+const app = express();
+app.options('*', cors());
+app.use(cors());
+app.use(bodyParser.json());
 
 dotenv.config();
 
