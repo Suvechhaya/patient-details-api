@@ -1,30 +1,20 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
 const cors = require('cors');
-
-
-// var cors = require('cors');
-// app.use(cors());
 
 //Import Routes
 const authRoute = require('./routes/auth');
 const patientRoute = require('./routes/patientManagement');
 
-dotenv.config();
+const app = express();
+app.options('*', cors());
+app.use(cors());
+app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
-  // res.header("Access-Control-Allow-Origin", "*");
-  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   res.header( 'Access-Control-Allow-Origin', '*');
-  res.header ('Access-Control-Allow-Credentials', true)
-  res.header ('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
-  res.header ('Access-Control-Allow-Headers', 'Content-Type')
-  next();
-});
+dotenv.config();
 
 //Connect to DB
 mongoose.connect('mongodb://localhost/patientDetails',
@@ -43,10 +33,6 @@ mongoose.connect('mongodb://localhost/patientDetails',
 
 //Middleware
 app.use(express.json());
-app.use(bodyParser.json());
-app.options('*', cors());
-app.use(cors());
-
 
 app.use(async (req, res, next) => {
     if (req.originalUrl.indexOf('/api/user/login') >= 0 ||
