@@ -33,7 +33,7 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
     try {
         //check if user exists
-        let fetchUser = await User.findOne({ name: req.body.name });
+        let fetchUser = await User.findOne({ email: req.body.email });
         if (!fetchUser) {
             res.status(404).json({ error: "User does not exist"});
             return;

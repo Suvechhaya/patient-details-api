@@ -40,7 +40,6 @@ app.use(async (req, res, next) => {
         return next();
     }
 
-    console.log(req.headers['authorization']);
     let token = req.headers['authorization'];
     if (!token) {
         return res.status(403).json({ error: "User not authenticated"});
