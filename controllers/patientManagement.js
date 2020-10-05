@@ -4,7 +4,7 @@ exports.addPatients = async (req, res) => {
   try {
     // Create a new patient
     const patient = new Patient({
-      date: Date.now(),
+      date: req.body.date,
       name: req.body.name,
       address: req.body.address,
       dob: req.body.dob,

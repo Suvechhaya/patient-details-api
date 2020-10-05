@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const patientSchema = new mongoose.Schema({
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   name: {
@@ -14,7 +14,7 @@ const patientSchema = new mongoose.Schema({
     required: true,
   },
   dob: {
-    type: Date,
+    type: String,
     required: true,
   },
   telephone: {
@@ -49,12 +49,12 @@ const patientSchema = new mongoose.Schema({
     cephAnalysis: Boolean
   },
   intraOral: {
-    intraOralPicture: Boolean,
-    intraOralPictureDate: Date
+    intraOralPictures: Boolean,
+    intraOralPictureDate: String
   },
   extraOral: {
     extraOralPictures: Boolean,
-    extraOralPictureDate: Date
+    extraOralPictureDate: String
   },
   fillOutManualForm: {
     type: Boolean
@@ -62,7 +62,7 @@ const patientSchema = new mongoose.Schema({
   casePresentation: {
     casePresentation: Boolean,
     presentedTo: String,
-    casePresentationDate: Date
+    casePresentationDate: String
   },
   comment: {
     type: String
@@ -73,12 +73,7 @@ const patientSchema = new mongoose.Schema({
   thesis: {
     type: Boolean
   },
-  bondingAppointment: {
-    bondingAppointmentDate: Date,
-    summary: String,
-    pictures: Boolean,
-    nextDate: Date
-  }
+  bondingAppointment: {}
 });
 
 module.exports = mongoose.model('Patient', patientSchema);
