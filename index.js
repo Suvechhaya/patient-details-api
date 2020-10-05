@@ -22,7 +22,6 @@ mongoose.connect('mongodb://localhost/patientDetails',
  () => console.log('conntected to db!'));
 
 // mongoose
-// .connect('mongodb://localhost/covid', {
     // .connect(process.env.DB_CONNECT, {
     //     useNewUrlParser: true,
     //     useUnifiedTopology: true,
